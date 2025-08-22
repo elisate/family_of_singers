@@ -1,0 +1,596 @@
+/* Schedule Page Styles */
+.schedule-page {
+    padding: 24px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    min-height: 100vh;
+}
+
+/* Page Header */
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 249, 250, 0.95) 100%);
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 147, 0, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.header-left .page-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: rgba(30, 34, 45, 1);
+    margin: 0 0 8px 0;
+}
+
+.header-left .page-subtitle {
+    color: rgba(255, 147, 0, 0.8);
+    margin: 0;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.create-schedule-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, rgba(255, 147, 0, 1) 0%, #e6a11f 100%);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(255, 147, 0, 0.3);
+}
+
+.create-schedule-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 147, 0, 0.4);
+    background: linear-gradient(135deg, #e6a11f 0%, #d89000 100%);
+}
+
+/* Control Bar */
+.control-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 249, 250, 0.95) 100%);
+    padding: 16px 24px;
+    border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 147, 0, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.filters {
+    display: flex;
+    gap: 16px;
+}
+
+.filter-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.filter-dropdown {
+    padding: 8px 12px;
+    border: 1px solid rgba(255, 147, 0, 0.2);
+    border-radius: 6px;
+    background: white;
+    color: rgba(30, 34, 45, 1);
+    font-size: 14px;
+    cursor: pointer;
+    min-width: 120px;
+}
+
+.filter-dropdown:focus {
+    outline: none;
+    border-color: rgba(255, 147, 0, 1);
+    box-shadow: 0 0 0 3px rgba(255, 147, 0, 0.1);
+}
+
+.view-toggles {
+    display: flex;
+    gap: 8px;
+}
+
+.view-toggle {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    border: 1px solid rgba(255, 147, 0, 0.2);
+    border-radius: 6px;
+    background: white;
+    color: rgba(30, 34, 45, 1);
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.view-toggle:hover {
+    background: rgba(255, 147, 0, 0.1);
+    border-color: rgba(255, 147, 0, 0.4);
+    color: rgba(255, 147, 0, 1);
+}
+
+.view-toggle.active {
+    background: linear-gradient(135deg, rgba(255, 147, 0, 1) 0%, #e6a11f 100%);
+    color: white;
+    border-color: rgba(255, 147, 0, 1);
+}
+
+/* Schedule Grid */
+.schedule-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+    gap: 24px;
+    margin-bottom: 32px;
+}
+
+.schedule-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 249, 250, 0.95) 100%);
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 147, 0, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.schedule-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(255, 147, 0, 0.15);
+    border-color: rgba(255, 147, 0, 0.3);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.schedule-type {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.type-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.type-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: rgba(30, 34, 45, 1);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.card-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.action-btn {
+    width: 36px;
+    height: 36px;
+    border: none;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: white;
+}
+
+.action-btn.edit {
+    background: linear-gradient(135deg, rgba(255, 147, 0, 1) 0%, #e6a11f 100%);
+}
+
+.action-btn.edit:hover {
+    background: linear-gradient(135deg, #e6a11f 0%, #d89000 100%);
+    transform: scale(1.05);
+}
+
+.action-btn.delete {
+    background: linear-gradient(135deg, #548D1F 0%, #4a7c1a 100%);
+}
+
+.action-btn.delete:hover {
+    background: linear-gradient(135deg, #4a7c1a 0%, #3f6b15 100%);
+    transform: scale(1.05);
+}
+
+.card-content .schedule-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: rgba(30, 34, 45, 1);
+    margin: 0 0 16px 0;
+    line-height: 1.3;
+}
+
+.schedule-details {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: rgba(255, 147, 0, 0.8);
+    font-size: 14px;
+}
+
+.detail-icon {
+    width: 18px;
+    height: 18px;
+    color: rgba(255, 147, 0, 0.6);
+}
+
+.schedule-description {
+    color: rgba(30, 34, 45, 0.8);
+    line-height: 1.6;
+    margin: 0;
+    font-size: 14px;
+}
+
+/* Create New Card */
+.schedule-card.create-new {
+    border: 2px dashed rgba(255, 147, 0, 0.3);
+    background: rgba(255, 147, 0, 0.05);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 200px;
+    transition: all 0.3s ease;
+}
+
+.schedule-card.create-new:hover {
+    border-color: rgba(255, 147, 0, 1);
+    background: rgba(255, 147, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+.create-content {
+    text-align: center;
+    color: rgba(255, 147, 0, 0.8);
+}
+
+.create-icon {
+    width: 48px;
+    height: 48px;
+    color: rgba(255, 147, 0, 0.6);
+    margin-bottom: 16px;
+}
+
+.create-content h3 {
+    margin: 0 0 8px 0;
+    color: rgba(30, 34, 45, 1);
+    font-weight: 600;
+}
+
+.create-content p {
+    margin: 0;
+    font-size: 14px;
+}
+
+/* Pagination */
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 32px;
+}
+
+.pagination-btn {
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba(255, 147, 0, 0.2);
+    background: white;
+    color: rgba(30, 34, 45, 1);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pagination-btn:hover,
+.pagination-btn.active {
+    background: linear-gradient(135deg, rgba(255, 147, 0, 1) 0%, #e6a11f 100%);
+    color: white;
+    border-color: rgba(255, 147, 0, 1);
+}
+
+/* Modal Styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 20px;
+}
+
+.modal-content {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 249, 250, 0.95) 100%);
+    border-radius: 16px;
+    width: 100%;
+    max-width: 600px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    animation: modalSlideIn 0.3s ease-out;
+    border: 1px solid rgba(255, 147, 0, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 24px 0 24px;
+    border-bottom: 1px solid rgba(255, 147, 0, 0.2);
+    margin-bottom: 24px;
+}
+
+.modal-header h2 {
+    margin: 0;
+    color: rgba(30, 34, 45, 1);
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.modal-close {
+    width: 40px;
+    height: 40px;
+    border: none;
+    background: rgba(255, 147, 0, 0.1);
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255, 147, 0, 0.8);
+    transition: all 0.2s ease;
+}
+
+.modal-close:hover {
+    background: rgba(255, 147, 0, 0.2);
+    color: rgba(255, 147, 0, 1);
+}
+
+/* Form Styles */
+.schedule-form {
+    padding: 0 24px 24px 24px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+.form-group label {
+    font-weight: 600;
+    color: rgba(30, 34, 45, 1);
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 12px 16px;
+    border: 1px solid rgba(255, 147, 0, 0.2);
+    border-radius: 8px;
+    font-size: 14px;
+    transition: all 0.2s ease;
+    background: white;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: rgba(255, 147, 0, 1);
+    box-shadow: 0 0 0 3px rgba(255, 147, 0, 0.1);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+/* Modal Actions */
+.modal-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255, 147, 0, 0.2);
+}
+
+.btn-primary,
+.btn-secondary,
+.btn-danger {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 14px;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, rgba(255, 147, 0, 1) 0%, #e6a11f 100%);
+    color: white;
+    box-shadow: 0 4px 12px rgba(255, 147, 0, 0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(255, 147, 0, 0.4);
+    background: linear-gradient(135deg, #e6a11f 0%, #d89000 100%);
+}
+
+.btn-secondary {
+    background: rgba(255, 147, 0, 0.1);
+    color: rgba(30, 34, 45, 1);
+    border: 1px solid rgba(255, 147, 0, 0.2);
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 147, 0, 0.2);
+    color: rgba(255, 147, 0, 1);
+    border-color: rgba(255, 147, 0, 0.4);
+}
+
+.btn-danger {
+    background: linear-gradient(135deg, #548D1F 0%, #4a7c1a 100%);
+    color: white;
+    box-shadow: 0 4px 12px rgba(84, 141, 31, 0.3);
+}
+
+.btn-danger:hover {
+    background: linear-gradient(135deg, #4a7c1a 0%, #3f6b15 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(84, 141, 31, 0.4);
+}
+
+/* Delete Modal Specific */
+.delete-modal .delete-content {
+    padding: 0 24px;
+    text-align: center;
+    color: rgba(255, 147, 0, 0.8);
+}
+
+.delete-content p {
+    margin: 0 0 12px 0;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.delete-content strong {
+    color: rgba(30, 34, 45, 1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .schedule-page {
+        padding: 16px;
+    }
+    
+    .page-header {
+        flex-direction: column;
+        gap: 16px;
+        align-items: stretch;
+        text-align: center;
+    }
+    
+    .control-bar {
+        flex-direction: column;
+        gap: 16px;
+        align-items: stretch;
+    }
+    
+    .filters {
+        justify-content: center;
+    }
+    
+    .view-toggles {
+        justify-content: center;
+    }
+    
+    .schedule-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    
+    .modal-content {
+        margin: 20px;
+        max-width: calc(100vw - 40px);
+    }
+    
+    .modal-actions {
+        flex-direction: column;
+    }
+    
+    .btn-primary,
+    .btn-secondary,
+    .btn-danger {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .schedule-card {
+        padding: 16px;
+    }
+    
+    .modal-header,
+    .schedule-form {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+    
+    .modal-header {
+        padding-top: 16px;
+    }
+    
+    .schedule-form {
+        padding-bottom: 16px;
+    }
+}
+

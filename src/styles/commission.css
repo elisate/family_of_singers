@@ -1,0 +1,81 @@
+/* Commission Section */
+.commission-section {
+  text-align: center;
+  background-color: #eef3f3; /* Light background */
+  padding: 50px 20px;
+}
+
+/* Section Title */
+.commission-title {
+  font-size: 20px;
+  font-style: italic;
+  color: rgba(255, 147, 0, 1); /* Orange underline color */
+  display: inline-block;
+  position: relative;
+  margin-bottom: 30px;
+  margin-top: 80px;
+}
+
+.commission-title::after {
+  content: "";
+  display: block;
+  width: 100px;
+  height: 2px;
+  background-color: #c0803a;
+  margin: 5px auto 0;
+}
+
+/* Grid Container */
+.commission-grid {
+  display: flex;
+  justify-content: left;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding: 0 10rem;
+}
+
+/* Commission Card */
+.commission-card {
+  background: white;
+  border-radius: 0.4rem;
+  padding: 20px;
+  width: 13rem;
+  min-height: 22vh; /* Allow card to grow if content is bigger */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  overflow: hidden; /* Prevent content overflow */
+}
+
+.commission-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Commission Icon */
+.commission-icon,
+.family-icon,
+.light-icon,
+.icon-style {
+  width: 2.5rem; /* Slightly smaller to fit */
+  height: auto;
+  margin-bottom: 10px;
+  color: #fca833;
+}
+
+/* Commission Name */
+.commission-name {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+/* Commission Description */
+.commission-description {
+  font-size: 14px;
+  color: #888;
+  overflow-wrap: break-word; /* Ensure long text wraps */
+}

@@ -1,0 +1,76 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body, html {
+  /* Remove overflow-x: hidden to fix scrolling issues */
+  background-color: #F1F8FF;
+  height: 100%; /* Change from min-height to height */
+  width: 100%;
+}
+
+.app {
+  height: 100%; /* Change from min-height to height */
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+}
+
+.scroll-buttons {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 1000;
+}
+
+.scroll-btn {
+  background-color: rgba(255, 147, 0, 1);
+  color: rgb(255, 255, 255);
+  border: none;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+}
+
+/* Responsive Design Rules */
+@media screen and (max-width: 1200px) {
+  .container {
+    padding: 0 20px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .scroll-buttons {
+    right: 10px;
+    bottom: 10px;
+  }
+  
+  .scroll-btn {
+    padding: 8px;
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .scroll-buttons {
+    right: 5px;
+    bottom: 5px;
+  }
+  
+  .scroll-btn {
+    padding: 6px;
+    font-size: 14px;
+  }
+}
+
+

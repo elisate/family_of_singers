@@ -1,0 +1,108 @@
+.hero-section {
+    height: 100vh;
+    width: 100%;
+    background-image: url('../assets/background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    position: relative;
+  }
+  .main-layout {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  .content {
+    flex: 1;
+  }
+  
+  
+  .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.8)); /* Darker gradient overlay */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .hero-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+    width: 100%;
+  }
+  
+  .hero-text {
+    flex: 1;
+    color: white;
+    padding-right: 40px;
+  }
+  
+  .hero-text h1 {
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    line-height: 1.2;
+  }
+  
+  .hero-text p {
+    font-size: 16px;
+    line-height: 1.6;
+    max-width: 500px;
+  }
+  .main > * { 
+    position: relative; /* Bring content above overlay */ 
+    z-index: 1; 
+  }
+  .hero-image {
+   
+    display: flex;
+    justify-content: center;
+  }
+  
+  .hero-image img {
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5); /* Adds a subtle shadow around the circle */
+}
+  
+  /* Responsive styles */
+  @media (max-width: 992px) {
+    .hero-content {
+      flex-direction: column;
+      text-align: center;
+    }
+    
+    .hero-text {
+      padding-right: 0;
+      margin-bottom: 40px;
+    }
+    
+    .hero-image img {
+      width: 300px;
+      height: 300px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .hero-text h1 {
+      font-size: 36px;
+    }
+    
+    .hero-image img {
+      width: 250px;
+      height: 250px;
+    }
+  }

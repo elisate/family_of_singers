@@ -1,0 +1,608 @@
+.admin-dashboard {
+    display: flex;
+    height: 100vh;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    overflow: hidden;
+    position: relative;
+}
+
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-left: 280px;
+    overflow: hidden;
+    position: relative;
+    min-height: 100vh;
+}
+
+.top-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 2rem 1rem 2rem;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 249, 250, 0.95) 100%);
+    border-bottom: 2px solid rgba(255, 147, 0, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+.header-left {
+    display: flex;
+    flex-direction: column;
+}
+
+.page-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: rgba(30, 34, 45, 1);
+    margin: 0 0 0.5rem 0;
+}
+
+.welcome-text {
+    font-size: 1rem;
+    color: rgba(255, 147, 0, 0.8);
+    margin: 0;
+    font-weight: 500;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.notification-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(255, 147, 0, 0.1) 0%, rgba(230, 161, 31, 0.1) 100%);
+    border-radius: 50%;
+    color: rgba(255, 147, 0, 1);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 1px solid rgba(255, 147, 0, 0.2);
+    position: relative;
+}
+
+.notification-icon:hover {
+    background: linear-gradient(135deg, rgba(255, 147, 0, 0.2) 0%, rgba(230, 161, 31, 0.2) 100%);
+    transform: scale(1.05);
+    color: rgba(255, 147, 0, 1);
+}
+
+.notification-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+    color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 600;
+    border: 2px solid white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+    padding: 8px 12px;
+    border-radius: 12px;
+    transition: all 0.2s ease;
+    border: 1px solid transparent;
+}
+
+.user-profile:hover {
+    background: rgba(255, 147, 0, 0.05);
+    border-color: rgba(255, 147, 0, 0.2);
+}
+
+.user-avatar {
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, rgba(255, 147, 0, 1) 0%, #e6a11f 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 600;
+    font-size: 1.125rem;
+    box-shadow: 0 2px 8px rgba(255, 147, 0, 0.3);
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-name {
+    font-size: 1rem;
+    font-weight: 600;
+    color: rgba(30, 34, 45, 1);
+    margin: 0;
+}
+
+.user-role {
+    font-size: 0.875rem;
+    color: rgba(255, 147, 0, 0.8);
+    margin: 0;
+    font-weight: 500;
+}
+
+.content-body {
+    flex: 1;
+    padding: 2rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 147, 0, 0.5) #f7fafc;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    position: relative;
+    z-index: 1;
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+}
+
+.content-body::-webkit-scrollbar {
+    width: 8px;
+}
+
+.content-body::-webkit-scrollbar-track {
+    background: #f7fafc;
+    border-radius: 4px;
+}
+
+.content-body::-webkit-scrollbar-thumb {
+    background: rgba(255, 147, 0, 0.5);
+    border-radius: 4px;
+}
+
+.content-body::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 147, 0, 0.8);
+}
+
+/* Modal Styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    backdrop-filter: blur(4px);
+}
+
+.notifications-modal,
+.profile-modal {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    max-width: 500px;
+    width: 90%;
+    max-height: 80vh;
+    overflow: hidden;
+    animation: slideInUp 0.3s ease;
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 24px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    background: linear-gradient(135deg, rgba(255, 147, 0, 0.05) 0%, rgba(230, 161, 31, 0.05) 100%);
+}
+
+.modal-header h3 {
+    margin: 0;
+    color: rgba(30, 34, 45, 1);
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: rgba(30, 34, 45, 0.6);
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.close-btn:hover {
+    background: rgba(255, 147, 0, 0.1);
+    color: rgba(255, 147, 0, 1);
+}
+
+/* Notifications Modal */
+.notifications-list {
+    max-height: 400px;
+    overflow-y: auto;
+    padding: 0;
+}
+
+.notification-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 20px 24px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.notification-item:hover {
+    background: rgba(255, 147, 0, 0.02);
+}
+
+.notification-item.unread {
+    background: rgba(255, 147, 0, 0.05);
+}
+
+.notification-item.unread:hover {
+    background: rgba(255, 147, 0, 0.08);
+}
+
+.notification-icon-small {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+.notification-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.notification-content h4 {
+    margin: 0 0 4px 0;
+    color: rgba(30, 34, 45, 1);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.notification-content p {
+    margin: 0 0 8px 0;
+    color: rgba(30, 34, 45, 0.7);
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+.notification-time {
+    color: rgba(30, 34, 45, 0.5);
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.unread-dot {
+    width: 8px;
+    height: 8px;
+    background: linear-gradient(135deg, rgba(255, 147, 0, 1) 0%, #e6a11f 100%);
+    border-radius: 50%;
+    position: absolute;
+    top: 20px;
+    right: 24px;
+}
+
+/* Profile Modal */
+.profile-content {
+    padding: 24px;
+    max-height: 70vh;
+    overflow-y: auto;
+}
+
+.profile-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.profile-content::-webkit-scrollbar-track {
+    background: #f7fafc;
+    border-radius: 3px;
+}
+
+.profile-content::-webkit-scrollbar-thumb {
+    background: rgba(255, 147, 0, 0.5);
+    border-radius: 3px;
+}
+
+.profile-content::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 147, 0, 0.8);
+}
+
+.profile-avatar-section {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.profile-avatar {
+    width: 64px;
+    height: 64px;
+    background: linear-gradient(135deg, rgba(255, 147, 0, 1) 0%, #e6a11f 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 600;
+    font-size: 1.5rem;
+    box-shadow: 0 4px 12px rgba(255, 147, 0, 0.3);
+}
+
+.profile-info h4 {
+    margin: 0 0 4px 0;
+    color: rgba(30, 34, 45, 1);
+    font-size: 1.125rem;
+    font-weight: 600;
+}
+
+.profile-info p {
+    margin: 0;
+    color: rgba(255, 147, 0, 0.8);
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.profile-details {
+    margin-bottom: 24px;
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 0;
+    color: rgba(30, 34, 45, 0.8);
+    font-size: 14px;
+}
+
+.detail-item svg {
+    color: rgba(255, 147, 0, 0.7);
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+}
+
+.profile-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.profile-btn {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    border: 1px solid rgba(255, 147, 0, 0.2);
+    border-radius: 10px;
+    background: white;
+    color: rgba(30, 34, 45, 0.8);
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.profile-btn:hover {
+    background: rgba(255, 147, 0, 0.05);
+    border-color: rgba(255, 147, 0, 0.4);
+    color: rgba(255, 147, 0, 1);
+    transform: translateY(-1px);
+}
+
+.profile-btn svg {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+}
+
+.profile-btn.logout-btn {
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+    color: white;
+    border-color: #ef4444;
+}
+
+.profile-btn.logout-btn:hover {
+    background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+}
+
+/* Edit Profile Modal */
+.edit-profile-modal {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    max-width: 500px;
+    width: 90%;
+    max-height: 80vh;
+    overflow: hidden;
+    animation: slideInUp 0.3s ease;
+}
+
+.edit-profile-content {
+    padding: 24px;
+    max-height: 60vh;
+    overflow-y: auto;
+}
+
+.edit-profile-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.edit-profile-content::-webkit-scrollbar-track {
+    background: #f7fafc;
+    border-radius: 3px;
+}
+
+.edit-profile-content::-webkit-scrollbar-thumb {
+    background: rgba(255, 147, 0, 0.5);
+    border-radius: 3px;
+}
+
+.edit-profile-content::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 147, 0, 0.8);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: rgba(30, 34, 45, 1);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    font-size: 14px;
+    color: rgba(30, 34, 45, 1);
+    background: white;
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: rgba(255, 147, 0, 0.5);
+    box-shadow: 0 0 0 3px rgba(255, 147, 0, 0.1);
+}
+
+.form-group input::placeholder {
+    color: rgba(30, 34, 45, 0.5);
+}
+
+.edit-profile-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.cancel-btn,
+.save-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 1px solid;
+    flex: 1;
+    justify-content: center;
+}
+
+.cancel-btn {
+    background: white;
+    color: rgba(30, 34, 45, 0.7);
+    border-color: rgba(0, 0, 0, 0.1);
+}
+
+.cancel-btn:hover {
+    background: rgba(0, 0, 0, 0.05);
+    color: rgba(30, 34, 45, 1);
+    transform: translateY(-1px);
+}
+
+.save-btn {
+    background: linear-gradient(135deg, rgba(255, 147, 0, 1) 0%, #e6a11f 100%);
+    color: white;
+    border-color: rgba(255, 147, 0, 1);
+}
+
+.save-btn:hover {
+    background: linear-gradient(135deg, #e6a11f 0%, #d89000 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(255, 147, 0, 0.3);
+}
+
+.cancel-btn svg,
+.save-btn svg {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .main-content {
+        margin-left: 0;
+    }
+    
+    .top-header {
+        padding: 1.5rem;
+    }
+    
+    .content-body {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .top-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+    
+    .header-right {
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    .page-title {
+        font-size: 1.5rem;
+    }
+}
